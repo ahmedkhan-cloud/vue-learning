@@ -1,0 +1,5 @@
+<script></script>
+
+<template>
+    This is About page
+</template>

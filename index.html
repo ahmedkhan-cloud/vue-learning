@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue practice</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ message }}</h1>
+      <button @click="onClick">click me!</button>
+
+      <p>{{ age }}</p>
+      <button @click="addAge">increase</button>
+      <button><a :href="link">Google.com</a></button>
+
+      <p v-if="status">Active</p>
+      <p v-else>Inactive</p>
+      <button v-show="!status" @click="changeStatus">Set Active</button>
+      <button v-show="status" @click="changeStatus">Set Inactive</button>
+    <ul>
+        <li v-for="item in list" :key="item">
+            {{ item }}
+        </li>
+    </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            message: "Practicing Vue.js",
+            age: 0,
+            link: "https://google.com",
+            status: false,
+            list: ['item-1', 'item-2', 'item-3']
+          };
+        },
+        methods: {
+          onClick() {
+            this.message = "Going good";
+          },
+          addAge() {
+            this.age += 1;
+          },
+          changeStatus() {
+            this.status = !this.status
+          },
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
